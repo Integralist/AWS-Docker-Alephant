@@ -1,0 +1,24 @@
+<div class="panel panel-default">
+  <ol class="breadcrumb pull-left" style="margin-top:8px;margin-bottom:0px;">
+    <li>Titles</li>
+  </ol>
+  <div class="panel-heading clearfix">
+    <a class="btn btn-primary pull-right" href="/titles/create">Create</a>
+  </div>
+
+  <table class="table">
+    <thead>
+      <th>Name</th>
+      <th>Buyers</th>
+    </thead>
+    <tbody>
+      {{# titles}}
+	  	<tr>
+			  <td><a href="/titles/{{ title_name }}/view">{{ title_name }}</a></td>
+        <td>{{ title_buyers }}</td>
+		  </tr>
+      {{/titles}}
+    </tbody>
+  </table>
+
+</div>

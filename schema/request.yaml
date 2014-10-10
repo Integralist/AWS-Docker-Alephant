@@ -1,0 +1,15 @@
+:attribute_definitions:
+  -
+    :attribute_name: 'date'
+    :attribute_type: 'S'
+
+:table_name: ''
+
+:key_schema:
+  -
+    :attribute_name: 'date'
+    :key_type: 'HASH'
+
+:provisioned_throughput:
+  :read_capacity_units: 10
+  :write_capacity_units:  10

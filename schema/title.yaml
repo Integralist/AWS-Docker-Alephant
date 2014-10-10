@@ -1,0 +1,15 @@
+:attribute_definitions:
+  -
+    :attribute_name: 'name'
+    :attribute_type: 'S'
+
+:table_name: ''
+
+:key_schema:
+  -
+    :attribute_name: 'name'
+    :key_type: 'HASH'
+
+:provisioned_throughput:
+  :read_capacity_units: 10
+  :write_capacity_units:  10
