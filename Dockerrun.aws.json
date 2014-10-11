@@ -1,8 +1,5 @@
 {
   "AWSEBDockerrunVersion": "1",
-  "Cmd" : [
-    "puma"
-  ],
   "Image": {
     "Name": "smaj/screener_requests"
   },
