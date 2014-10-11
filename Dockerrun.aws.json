@@ -8,6 +8,7 @@
     {
       "ContainerDirectory": "/usr/src/app/config/production",
       "HostDirectory": "/var/app"
+    }
   ],
   "Logging": "/var/eb_log"
 }
