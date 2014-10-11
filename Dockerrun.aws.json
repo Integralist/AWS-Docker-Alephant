@@ -1,8 +1,5 @@
 {
   "AWSEBDockerrunVersion": "1",
-  "Cmd": [
-    "puma"
-  ],
   "Image": {
     "Name": "smaj/screener_requests"
   },
@@ -12,10 +9,6 @@
     }
   ],
   "Volumes": [
-    {
-      "ContainerDirectory": "/usr/src/app",
-      "HostDirectory": "/var/app"
-    },
     {
       "ContainerDirectory": "/usr/src/app/config/production",
       "HostDirectory": "/var/app"
