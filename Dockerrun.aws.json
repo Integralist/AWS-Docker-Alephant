@@ -3,6 +3,11 @@
   "Image": {
     "Name": "smaj/screener_requests"
   },
+  "Ports": [
+    {
+      "ContainerPort": "9292"
+    }
+  ],
   "Volumes": [
     {
       "ContainerDirectory": "/usr/src/app",
