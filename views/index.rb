@@ -8,6 +8,10 @@ class Application
       def content
         "Welcome to the screener request service."
       end
+
+      def env
+        ENV.inspect.to_s
+      end
     end
   end
 end
