@@ -11,7 +11,7 @@ class Application
 
       def titles
         options = {
-          :table_name => 'title',
+          :table_name => ENV['TITLE_TABLE_NAME'],
           :limit      => 100
         }
         items = AWS::DynamoDB::Client::V20120810.new.scan(options)

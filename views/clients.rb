@@ -11,7 +11,7 @@ class Application
 
       def clients
         options = {
-          :table_name => 'client',
+          :table_name => ENV['CLIENT_TABLE_NAME'],
           :limit      => 100
         }
         items = AWS::DynamoDB::Client::V20120810.new.scan(options)
