@@ -26,7 +26,7 @@ class Application < Sinatra::Base
   post '/titles/create' do
     ddb = AWS::DynamoDB::Client.new(:api_version => '2012-08-10')
     ddb.put_item(
-      :table_name => 'title',
+      :table_name => ENV['TITLE_TABLE_NAME'],
       :item => {
         'name' => {
           'S' => params[:titleName]
@@ -47,7 +47,7 @@ class Application < Sinatra::Base
   post '/clients/create' do
     ddb = AWS::DynamoDB::Client.new(:api_version => '2012-08-10')
     ddb.put_item(
-      :table_name => 'client',
+      :table_name => ENV['CLIENT_TABLE_NAME'],
       :item => {
         'company' => {
           'S' => params[:company]
@@ -74,7 +74,7 @@ class Application < Sinatra::Base
   post '/requests/create' do
     ddb = AWS::DynamoDB::Client.new(:api_version => '2012-08-10')
     ddb.put_item(
-      :table_name => 'request',
+      :table_name => ENV['REQUEST_TABLE_NAME'],
       :item => {
         'id' => {
           'S' => SecureRandom.uuid
@@ -92,8 +92,4 @@ class Application < Sinatra::Base
     )
     redirect('/requests')
   end
-
-
-
-
 end
