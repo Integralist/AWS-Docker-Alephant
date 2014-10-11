@@ -1,0 +1,35 @@
+<div class="panel panel-default">
+  <ol class="breadcrumb pull-left" style="margin-top:8px;margin-bottom:0px;">
+    <li><a href="/requests">Requests</a></li>
+    <li>Create</li>
+  </ol>
+  <div class="panel-heading clearfix"></div>
+
+  <div class="panel-body">
+	  <form role="form" action="/requests/update/{{ request.id }}" method="post">
+		<div class="form-group">
+		  <label for="title">Title</label>
+      <select class="form-control" id="title" name="title">
+        {{# titles}}
+          <option>{{ title_name }}</option>
+        {{/titles}}
+      </select>
+		</div>
+		<div class="form-group">
+		  <label for="title">Client</label>
+      <select class="form-control" id="client" name="client">
+        {{# clients}}
+          <option>{{ client_name }}</option>
+        {{/clients}}
+      </select>
+		</div>
+
+    <div class="form-group">
+		  <label for="comments">Comments</label>
+      <textarea class="form-control" rows="30" name="comment" id="comment"></textarea>
+    </div>
+
+		<button type="submit" class="btn btn-default">Create</button>
+	  </form>
+  </div>
+</div>

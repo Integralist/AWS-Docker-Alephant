@@ -1,10 +1,9 @@
 class Application
   module Views
-    class Layout < Mustache
+    class ClientsCreate < Layout
       def title
-        "Screener Requests"
+        "#{super} - Clients - Create"
       end
     end
   end
 end
-

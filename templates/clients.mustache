@@ -1,0 +1,26 @@
+<div class="panel panel-default">
+  <ol class="breadcrumb pull-left" style="margin-top:8px;margin-bottom:0px;">
+    <li>Clients</li>
+  </ol>
+  <div class="panel-heading clearfix">
+    <a class="btn btn-primary pull-right" href="/clients/create">Create</a>
+  </div>
+
+  <table class="table">
+    <thead>
+      <th>Company</th>
+      <th>Buyer</th>
+      <th>Teritory</th>
+    </thead>
+    <tbody>
+      {{# clients}}
+	  	<tr>
+			  <td>{{ company }}</td>
+			  <td>{{ buyer }}</td>
+			  <td>{{ teritory }}</td>
+		  </tr>
+      {{/clients}}
+    </tbody>
+  </table>
+
+</div>

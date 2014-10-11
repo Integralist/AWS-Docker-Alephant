@@ -1,21 +1,23 @@
 <div class="panel panel-default">
   <ol class="breadcrumb pull-left" style="margin-top:8px;margin-bottom:0px;">
-    <li>Titles</li>
+    <li>Clients</li>
   </ol>
   <div class="panel-heading clearfix">
-    <a class="btn btn-primary pull-right" href="/titles/create">Create</a>
+    <a class="btn btn-primary pull-right" href="/requests/create">Create</a>
   </div>
 
   <table class="table">
     <thead>
-      <th>Name</th>
+      <th>Title</th>
+      <th>Client</th>
     </thead>
     <tbody>
-      {{# titles}}
+      {{# requests}}
 	  	<tr>
-			  <td>{{ title_name }}</td>
+			  <td><a href="/requests/view/{{ id }}">{{ title }}</a></td>
+			  <td>{{ client }}</td>
 		  </tr>
-      {{/titles}}
+      {{/requests}}
     </tbody>
   </table>
 

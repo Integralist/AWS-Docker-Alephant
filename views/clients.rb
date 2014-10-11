@@ -1,22 +1,26 @@
 class Application
   module Views
-    class Titles < Layout
+    class Clients < Layout
       def title
-        "#{super} - Titles"
+        "#{super} - Clients"
       end
 
       def content
         "Welcome to the screener request service."
       end
 
-      def titles
+      def clients
         options = {
-          :table_name => 'title',
+          :table_name => 'client',
           :limit      => 100
         }
         items = AWS::DynamoDB::Client::V20120810.new.scan(options)
         items[:member].map do |item|
-          { :title_name => item["name"][:s] }
+          {
+            :company  => item["company"][:s],
+            :buyer    => item["buyer"][:s],
+            :teritory => item["teritory"][:s],
+          }
         end
       end
     end

@@ -1,4 +1,4 @@
-module App
+class Application
   module Views
     class Index < Layout
       def title

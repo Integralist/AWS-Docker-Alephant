@@ -1,13 +1,13 @@
 :attribute_definitions:
   -
-    :attribute_name: 'name'
+    :attribute_name: 'buyer'
     :attribute_type: 'S'
 
 :table_name: ''
 
 :key_schema:
   -
-    :attribute_name: 'name'
+    :attribute_name: 'buyer'
     :key_type: 'HASH'
 
 :provisioned_throughput:
