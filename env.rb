@@ -1,15 +1,20 @@
 $: << File.join(File.dirname(__FILE__), 'lib')
 
-ENV["APP_ENV"] = ENV.fetch("RACK_ENV", 'development')
+require 'aws-sdk'
+require 'dotenv'
 
-require "alephant/harness/aws"
-require "spurious/ruby/awssdk/helper"
-require "pry" if ENV["APP_ENV"] == "development"
-
-AWS.config(:region => 'eu-west-1')
+ENV['APP_ENV'] = ENV.fetch('APP_ENV', 'development')
 
 if ENV['APP_ENV'] == 'development'
-  AWS.config(:secret_access_key => 'development_secret', :access_key_id => 'development_access')
+  require 'spurious/ruby/awssdk/helper'
   Spurious::Ruby::Awssdk::Helper.configure
-  Alephant::Harness::AWS.configure(ENV)
 end
+
+Dotenv.load(
+  File.join(
+    File.dirname(__FILE__),
+    'config',
+    ENV['APP_ENV'],
+    'env.yaml'
+  )
+)

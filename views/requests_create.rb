@@ -10,7 +10,7 @@ class Application
           :table_name => ENV['TITLE_TABLE_NAME'],
           :limit      => 100
         }
-        items = AWS::DynamoDB::Client::V20120810.new.scan(options)
+        items = ddb.scan(options)
         items[:member].map do |item|
           { :title_name => item["name"][:s] }
         end
@@ -21,7 +21,7 @@ class Application
           :table_name => ENV['CLIENT_TABLE_NAME'],
           :limit      => 100
         }
-        items = AWS::DynamoDB::Client::V20120810.new.scan(options)
+        items = ddb.scan(options)
         items[:member].map do |item|
           {
             :client_name => item["buyer"][:s],

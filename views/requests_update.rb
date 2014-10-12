@@ -13,7 +13,7 @@ class Application
           }
         }
 
-        items = AWS::DynamoDB::Client::V20120810.new.get_item(options)
+        items = ddb.get_item(options)
         item[:item][:s]
       end
 

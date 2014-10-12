@@ -10,7 +10,7 @@ class Application
           :table_name => ENV['REQUEST_TABLE_NAME'],
           :limit      => 100
         }
-        items = AWS::DynamoDB::Client::V20120810.new.scan(options)
+        items = ddb.scan(options)
         items[:member].map do |item|
           {
             :id       => item["id"][:s],
