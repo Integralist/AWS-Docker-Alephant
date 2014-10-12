@@ -78,10 +78,14 @@ class Application < Sinatra::Base
       'client' => {
         'S' => params[:client]
       },
-      'comment' => {
-        'S' => params[:comment]
+      'created' => {
+        'S' => Time.new.to_s
       }
     }
+
+    item['comment'] = {
+      'S' => params[:comment]
+    } unless params[:comment].empty?
 
     put_item(item, 'REQUEST_TABLE_NAME')
     redirect('/requests')

@@ -1,3 +1,5 @@
+require 'time'
+
 class Application
   module Views
     class Layout < Mustache
@@ -44,10 +46,12 @@ class Application
         }
         items = ddb.scan(options)
         items[:member].map do |item|
+          puts item["created"][:s]
           {
             :id       => item["id"][:s],
             :title    => item["title"][:s],
-            :client   => item["client"][:s]
+            :client   => item["client"][:s],
+            :created  => Time.parse(item["created"][:s]).strftime('%I:%M%p %m/%d/%Y')
           }
         end
       end

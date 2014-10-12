@@ -14,12 +14,14 @@
     <thead>
       <th>Title</th>
       <th>Client</th>
+      <th>Created</th>
     </thead>
     <tbody>
       {{# requests}}
 	  	<tr>
 			  <td><a href="/requests/view/{{ id }}">{{ title }}</a></td>
 			  <td>{{ client }}</td>
+			  <td>{{ created }}</td>
 		  </tr>
       {{/requests}}
     </tbody>
