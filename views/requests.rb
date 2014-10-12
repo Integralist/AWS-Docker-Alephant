@@ -6,18 +6,7 @@ class Application
       end
 
       def requests
-        options = {
-          :table_name => ENV['REQUEST_TABLE_NAME'],
-          :limit      => 100
-        }
-        items = ddb.scan(options)
-        items[:member].map do |item|
-          {
-            :id       => item["id"][:s],
-            :title    => item["title"][:s],
-            :client   => item["client"][:s]
-          }
-        end
+        request_list
       end
 
     end

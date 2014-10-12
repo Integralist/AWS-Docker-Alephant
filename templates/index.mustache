@@ -1,3 +1,20 @@
 <div class="page-header">
   <h3>{{ content }}</h3>
 </div>
+
+<table class="table">
+  <thead>
+    <th>Service</th>
+    <th>Records</th>
+  </thead>
+  <tbody>
+    {{# stats}}
+    <tr>
+      <td><a href="/{{ service }}">{{ service }}</a></td>
+      <td>{{ count }}</td>
+    </tr>
+    {{/stats}}
+  </tbody>
+</table>
+
+

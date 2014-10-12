@@ -24,15 +24,13 @@ class Application < Sinatra::Base
   end
 
   post '/titles/create' do
-    ddb = AWS::DynamoDB::Client.new(:api_version => '2012-08-10')
-    ddb.put_item(
-      :table_name => ENV['TITLE_TABLE_NAME'],
-      :item => {
-        'name' => {
-          'S' => params[:titleName]
-        }
+    item = {
+      'name' => {
+        'S' => params[:titleName]
       }
-    )
+    }
+
+    put_item(item, 'TITLE_TABLE_NAME')
     redirect('/titles')
   end
 
@@ -45,21 +43,19 @@ class Application < Sinatra::Base
   end
 
   post '/clients/create' do
-    ddb = AWS::DynamoDB::Client.new(:api_version => '2012-08-10')
-    ddb.put_item(
-      :table_name => ENV['CLIENT_TABLE_NAME'],
-      :item => {
-        'company' => {
-          'S' => params[:company]
-        },
-        'buyer' => {
-          'S' => params[:buyer]
-        },
-        'teritory' => {
-          'S' => params[:teritory]
-        }
+    item = {
+      'company' => {
+        'S' => params[:company]
+      },
+      'buyer' => {
+        'S' => params[:buyer]
+      },
+      'teritory' => {
+        'S' => params[:teritory]
       }
-    )
+    }
+
+    put_item(item, 'CLIENT_TABLE_NAME')
     redirect('/clients')
   end
 
@@ -72,24 +68,35 @@ class Application < Sinatra::Base
   end
 
   post '/requests/create' do
-    ddb = AWS::DynamoDB::Client.new(:api_version => '2012-08-10')
-    ddb.put_item(
-      :table_name => ENV['REQUEST_TABLE_NAME'],
-      :item => {
-        'id' => {
-          'S' => SecureRandom.uuid
-        },
-        'title' => {
-          'S' => params[:title]
-        },
-        'client' => {
-          'S' => params[:client]
-        },
-        'comment' => {
-          'S' => params[:comment]
-        }
+    item = {
+      'id' => {
+        'S' => SecureRandom.uuid
+      },
+      'title' => {
+        'S' => params[:title]
+      },
+      'client' => {
+        'S' => params[:client]
+      },
+      'comment' => {
+        'S' => params[:comment]
       }
-    )
+    }
+
+    put_item(item, 'REQUEST_TABLE_NAME')
     redirect('/requests')
+  end
+
+  protected
+
+  def put_item(table_name, item)
+    ddb.put_item(
+      :table_name => ENV[table_name],
+      :item       => item
+    )
+  end
+
+  def ddb
+    @ddb ||= AWS::DynamoDB::Client::V20120810.new
   end
 end

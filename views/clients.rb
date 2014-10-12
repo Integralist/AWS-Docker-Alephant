@@ -10,18 +10,7 @@ class Application
       end
 
       def clients
-        options = {
-          :table_name => ENV['CLIENT_TABLE_NAME'],
-          :limit      => 100
-        }
-        items = ddb.scan(options)
-        items[:member].map do |item|
-          {
-            :company  => item["company"][:s],
-            :buyer    => item["buyer"][:s],
-            :teritory => item["teritory"][:s],
-          }
-        end
+        client_list
       end
     end
   end
