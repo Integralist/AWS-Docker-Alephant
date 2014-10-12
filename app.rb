@@ -89,7 +89,7 @@ class Application < Sinatra::Base
 
   protected
 
-  def put_item(table_name, item)
+  def put_item(item, table_name)
     ddb.put_item(
       :table_name => ENV[table_name],
       :item       => item
