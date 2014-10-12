@@ -24,7 +24,7 @@ class Application
         items = ddb.scan(options)
         items[:member].map do |item|
           {
-            :client_name => item["buyer"][:s],
+            :client_name => "#{item["buyer"][:s]} (#{item["company"][:s]} - #{item["teritory"][:s]})",
           }
         end
       end

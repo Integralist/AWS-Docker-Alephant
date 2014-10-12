@@ -12,14 +12,14 @@
 
   <table class="table">
     <thead>
-      <th>Title</th>
+      <th>Title(s)</th>
       <th>Client</th>
       <th>Created</th>
     </thead>
     <tbody>
       {{# requests}}
 	  	<tr>
-			  <td><a href="/requests/view/{{ id }}">{{ title }}</a></td>
+			  <td>{{ title }}</td>
 			  <td>{{ client }}</td>
 			  <td>{{ created }}</td>
 		  </tr>

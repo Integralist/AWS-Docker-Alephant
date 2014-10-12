@@ -73,7 +73,7 @@ class Application < Sinatra::Base
         'S' => SecureRandom.uuid
       },
       'title' => {
-        'S' => params[:title]
+        'S' => params[:title].join(', ')
       },
       'client' => {
         'S' => params[:client]
