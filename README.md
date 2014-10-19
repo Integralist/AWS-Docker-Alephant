@@ -8,7 +8,6 @@ test to see how elasticbeanstalk works with docker.
 - `bundle install`
 - `spurious-server start`
 - `spurious-server status`
-- `rackup`
 - `docker ps -a`
 - `spurious up` 
 - `spurious ports`
