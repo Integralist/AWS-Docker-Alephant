@@ -10,4 +10,5 @@ gem "dotenv"
 group :development do
   gem "spurious"
   gem "spurious-ruby-awssdk-helper"
+  gem "alephant-harness"
 end

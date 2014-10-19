@@ -1,6 +1,8 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    alephant-harness (0.2.0)
+      aws-sdk
     archive-tar-minitar (0.5.2)
     aws-sdk (1.55.0)
       aws-sdk-v1 (= 1.55.0)
@@ -53,6 +55,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  alephant-harness
   aws-sdk
   dotenv
   mustache
